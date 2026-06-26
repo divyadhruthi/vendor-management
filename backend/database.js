@@ -224,4 +224,15 @@ try {
   }
 } catch (_) {}
 
+// Auto-create admin user if no users exist (first-time setup)
+const userCount = db.prepare('SELECT COUNT(*) as count FROM users').get();
+if (userCount.count === 0) {
+  const bcrypt = require('bcryptjs');
+  const hashedPassword = bcrypt.hashSync('admin@123', 10);
+  db.prepare(
+    'INSERT INTO users (name, email, password, role, phone) VALUES (?, ?, ?, ?, ?)'
+  ).run('Glory Simon', 'admin@glorysimon.com', hashedPassword, 'admin', '9876543210');
+  console.log('Admin user created automatically (first-time setup)');
+}
+
 module.exports = db;
