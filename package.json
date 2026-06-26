@@ -1,0 +1,14 @@
+{
+  "name": "vendor-management-system",
+  "version": "1.0.0",
+  "description": "Glory Simon Interiors - Vendor & Contractor Management System",
+  "scripts": {
+    "install:all": "cd frontend && npm install && cd ../backend && npm install",
+    "build": "cd frontend && npm install && npm run build",
+    "start": "cd backend && node server.js",
+    "postinstall": "npm run install:all"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
