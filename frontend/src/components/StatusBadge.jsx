@@ -11,6 +11,7 @@ const statusStyles = {
   scheduled: 'bg-amber-50 text-amber-700 ring-amber-600/20',
   draft: 'bg-slate-50 text-slate-600 ring-slate-500/20',
   inactive: 'bg-slate-50 text-slate-600 ring-slate-500/20',
+  busy: 'bg-orange-50 text-orange-700 ring-orange-600/20',
   cancelled: 'bg-red-50 text-red-700 ring-red-600/20',
   overdue: 'bg-red-50 text-red-700 ring-red-600/20',
   rejected: 'bg-red-50 text-red-700 ring-red-600/20',

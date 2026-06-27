@@ -135,7 +135,21 @@ export default function Clients() {
             </div>
             <div>
               <label className="mb-1 block text-sm font-medium text-slate-700">Phone *</label>
-              <input className="input-field" required value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} />
+              <input
+                className="input-field"
+                required
+                value={form.phone}
+                maxLength={10}
+                pattern="\d{10}"
+                title="Please enter a valid 10-digit phone number"
+                onChange={(e) => {
+                  const val = e.target.value.replace(/\D/g, '');
+                  if (val.length <= 10) setForm({ ...form, phone: val });
+                }}
+              />
+              {form.phone && form.phone.length < 10 && (
+                <p className="mt-1 text-xs text-amber-600">{10 - form.phone.length} more digit{10 - form.phone.length !== 1 ? 's' : ''} needed</p>
+              )}
             </div>
             <div>
               <label className="mb-1 block text-sm font-medium text-slate-700">Email</label>
